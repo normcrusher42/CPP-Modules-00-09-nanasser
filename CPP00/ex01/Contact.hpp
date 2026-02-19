@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 04:44:25 by nanasser          #+#    #+#             */
-/*   Updated: 2026/02/15 04:44:25 by nanasser         ###   ########.fr       */
+/*   Created: 2026/02/19 02:19:05 by nanasser          #+#    #+#             */
+/*   Updated: 2026/02/19 02:19:05 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include <iostream>
-# include "Contact.hpp"
-
-class PhoneBook
+class Contact
 {
 	public:
-		PhoneBook();
-		Contact contacts[8];
-	
+		Contact();
+		~Contact();
 };
 
 #endif

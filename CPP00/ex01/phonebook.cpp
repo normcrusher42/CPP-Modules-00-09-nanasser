@@ -10,9 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "phonebook.hpp"
+#include "Contact.hpp"
 
 int	main()
 {
+	PhoneBook	phonebook;
+	Contact		contact;
 	
+	return (0);
 }
