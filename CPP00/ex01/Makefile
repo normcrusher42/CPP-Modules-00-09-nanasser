@@ -6,6 +6,8 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
+SRC = main.cpp
+
 OBJ = $(SRC:%.cpp=%.o)
 
 # Color codes ✨
@@ -27,7 +29,7 @@ $(NAME) : $(OBJ)
 
 clean:
 	@rm -rf megaphone.o
-	@echo "$(BGREEN)cleaned like the blackhole you guys are getting if you DON'T GET TO COOKING$(WHITE)"
+	@echo "$(BGREEN)cleaned like the blackhole you're getting if you DON'T GET TO COOKING$(WHITE)"
 
 fclean: clean
 	@rm -rf $(NAME)
