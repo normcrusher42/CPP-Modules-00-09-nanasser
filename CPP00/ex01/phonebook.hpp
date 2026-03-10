@@ -16,12 +16,23 @@
 # include <iostream>
 # include "Contact.hpp"
 
+# define MAX_CONTACTS 8
+
 class PhoneBook
 {
+	private:
+		int	num_of_entries;
 	public:
+		// Contact book
+		Contact contacts[MAX_CONTACTS];
+		// Constructors
 		PhoneBook();
-		Contact contacts[8];
-	
+		~PhoneBook();
+
+		// Member functions
+		void	addContact(std::string first_name, std::string last_name, std::string nickname,
+			std::string phone_number, std::string darkest_secret);
+		int getNumEntries();
 };
 
 #endif

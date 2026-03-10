@@ -1,14 +1,18 @@
 SRC = phonebook.cpp
 
+OBJ_PATH = obj/
+
 NAME = EpicPhonebook
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
-SRC = main.cpp
+SRC = main.cpp \
+PhoneBook.cpp \
+Contact.cpp
 
-OBJ = $(SRC:%.cpp=%.o)
+OBJ = $(SRC:%.cpp=$(OBJ_PATH)%.o)
 
 # Color codes ✨
 WHITE = \033[0;37m
@@ -24,11 +28,12 @@ $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(BWHITE)$(NAME)$(WHITE) program is $(BGREEN)ready! $(RESET)✅"
 
-%.o : %.cpp
+$(OBJ_PATH)%.o : %.cpp
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf megaphone.o
+	@rm -rf $(OBJ_PATH)
 	@echo "$(BGREEN)cleaned like the blackhole you're getting if you DON'T GET TO COOKING$(WHITE)"
 
 fclean: clean

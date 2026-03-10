@@ -12,6 +12,7 @@
 
 #include <iostream>
 
+// Takes input arguments and prints them to the stdout with CAPS ON.
 int	main(int ac, char **av)
 {
 	if (ac == 1)
