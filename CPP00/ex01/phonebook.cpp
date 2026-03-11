@@ -29,10 +29,12 @@ PhoneBook::PhoneBook()
 PhoneBook::~PhoneBook()
 {}
 
+// Adds a contact to the phonebook, and increments the number of entries.
+// If the phonebook is full, it replaces the oldest entry with the new contact.
 void PhoneBook::addContact(std::string first_name, std::string last_name, std::string nickname,
 							std::string phone_number, std::string darkest_secret)
 {
-	if(num_of_entries < MAX_CONTACTS)
+	if (num_of_entries < MAX_CONTACTS)
 	{
 		contacts[num_of_entries] = Contact(first_name, last_name, nickname, phone_number, darkest_secret);
 		num_of_entries++;

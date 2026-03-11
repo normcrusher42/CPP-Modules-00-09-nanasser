@@ -22,10 +22,10 @@ Contact::Contact()
 
 // Member functions
 std::string	Contact::getLastName() const
-{return (Lastname);}
+{return (Last_name);}
 
 std::string	Contact::getFirstname() const
-{return (Firstname);}
+{return (First_name);}
 
 std::string	Contact::getNickname() const
 {return (Nickname);}
@@ -47,7 +47,7 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 {
 	First_name = first_name;
 	Last_name = last_name;
-	nickname = nickname;
+	Nickname = nickname;
 	Phone_number = phone_number;
 	Darkest_secret = darkest_secret;
 	time(&Created);

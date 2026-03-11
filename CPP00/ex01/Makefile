@@ -10,7 +10,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
 SRC = main.cpp \
 PhoneBook.cpp \
-Contact.cpp
+Contact.cpp \
+Search.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_PATH)%.o)
 

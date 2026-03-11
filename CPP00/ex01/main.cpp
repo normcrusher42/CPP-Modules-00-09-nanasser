@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include "string"
-#include "iomanip"
 #include "macros.hpp"
 
+// Gets user input and ensures that it's not empty.
+// It keeps prompting the user until they provide a non-empty input.
 static std::string getUserInput(std::string message)
 {
 	std::string input = "";
@@ -29,6 +28,7 @@ static std::string getUserInput(std::string message)
 	return (input);
 }
 
+// Reads user input, builds contact info, and adds the contact to the phonebook.
 void add_contact(PhoneBook *phoneBook)
 {
 	std::string	first_name;
@@ -45,6 +45,8 @@ void add_contact(PhoneBook *phoneBook)
 	phoneBook->addContact(first_name , last_name, nickname, phone_number, darkest_secret);
 }
 
+// A cute but super epic Phonebook about storing contacts, searching them, and leaving them all behind :))
+// le Magie 𝓬𝓸𝓶𝓶𝓮𝓷𝓬𝓮
 int	main()
 {
 	std::string	command;

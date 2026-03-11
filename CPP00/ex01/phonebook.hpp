@@ -14,7 +14,10 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <limits>
+# include <iomanip>
 # include "Contact.hpp"
+# include "macros.hpp"
 
 # define MAX_CONTACTS 8
 
@@ -34,5 +37,7 @@ class PhoneBook
 			std::string phone_number, std::string darkest_secret);
 		int getNumEntries();
 };
+
+void search_contact(PhoneBook *phoneBook);
 
 #endif

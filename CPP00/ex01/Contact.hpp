@@ -13,6 +13,7 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+# include <string>
 # include <ctime>
 
 class Contact
@@ -20,7 +21,7 @@ class Contact
 	private:
 		std::string First_name;
 		std::string Last_name;
-		std::string nickname;
+		std::string Nickname;
 		std::string Phone_number;
 		std::string Darkest_secret;
 		time_t 		Created;
