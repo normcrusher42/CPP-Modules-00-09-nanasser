@@ -1,11 +1,10 @@
 SRC = main.cpp \
-PhoneBook.cpp \
-Contact.cpp \
-Search.cpp
+Zombie.cpp \
+zombieHorde.cpp \
 
 OBJ_PATH = obj/
 
-NAME = EpicPhonebook
+NAME = zombieHorde
 
 CC = c++
 
@@ -28,7 +27,8 @@ $(NAME) : $(OBJ)
 	@echo "$(BWHITE)$(NAME)$(WHITE) program is $(BGREEN)ready! $(RESET)✅"
 
 $(OBJ_PATH)%.o : %.cpp
-	@mkdir -p $(@D)
+	@mkdir -p $(OBJ_PATH)
+	@echo "$(WHITE)Compiling $(BWHITE)$<$(WHITE) file...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
