@@ -12,6 +12,12 @@
 
 #include "Zombie.hpp"
 
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
+	std::cout << GRAY "Zombie \"" << name << "\" created" RESET << std::endl;
+}
+
 Zombie *zombieHorde(int N, std::string name)
 {
 	Zombie	*zombieHorde;
@@ -23,6 +29,6 @@ Zombie *zombieHorde(int N, std::string name)
 	}
 	zombieHorde = new Zombie[N];
 	for (int i = 0; i < N; i++)
-		zombieHorde[i] = Zombie(name);
+		zombieHorde[i].setName(name);
 	return (zombieHorde);
 }

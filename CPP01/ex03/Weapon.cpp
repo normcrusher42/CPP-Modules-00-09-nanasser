@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 19:34:34 by nanasser          #+#    #+#             */
-/*   Updated: 2026/04/12 19:34:34 by nanasser         ###   ########.fr       */
+/*   Created: 2026/04/13 16:24:01 by nanasser          #+#    #+#             */
+/*   Updated: 2026/04/13 16:24:01 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name)
+std::string Weapon::getType() const
 {
-	this->name = name;
-	std::cout << GRAY "Zombie \"" << name << "\" created" RESET << std::endl;
+	return (type);
 }
 
-Zombie::~Zombie()
+void	Weapon::setType(std::string type)
 {
-	std::cout << GRAY "Zombie \"" << name << "\" destroyed" RESET << std::endl;
+	this->type = type;
 }
 
-void	Zombie::announce(void)
+Weapon::Weapon(std::string type)
 {
-	std::cout << name << BWHITE ": BraiiiiiiinnnzzzZ..." RESET << std::endl;
+	setType(type);
+	std::cout << GRAY "Weapon \"" << type << "\" created" RESET << std::endl;
+}
+
+Weapon::~Weapon()
+{
+	std::cout << GRAY "Weapon \"" << type << "\" destroyed" RESET << std::endl;
 }

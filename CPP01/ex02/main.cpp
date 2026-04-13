@@ -14,8 +14,8 @@
 #include <string>
 #include <new>
 
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
+#define BWHITE  "\033[1;37m"
+#define RESET "\033[0m"
 
 int	main(void)
 {

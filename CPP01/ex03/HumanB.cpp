@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 19:34:34 by nanasser          #+#    #+#             */
-/*   Updated: 2026/04/12 19:34:34 by nanasser         ###   ########.fr       */
+/*   Created: 2026/04/13 16:54:49 by nanasser          #+#    #+#             */
+/*   Updated: 2026/04/13 16:54:49 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie(std::string name)
+HumanB::HumanB(std::string name)
 {
 	this->name = name;
-	std::cout << GRAY "Zombie \"" << name << "\" created" RESET << std::endl;
+	std::cout << GRAY "Human B \"" << name << "\" was deployed" RESET << std::endl;
 }
 
-Zombie::~Zombie()
+HumanB::~HumanB()
 {
-	std::cout << GRAY "Zombie \"" << name << "\" destroyed" RESET << std::endl;
+	std::cout << GRAY "Human A \"" << name << "\" has fallen.." RESET << std::endl;
 }
 
-void	Zombie::announce(void)
+void	HumanB::attack(void)
 {
-	std::cout << name << BWHITE ": BraiiiiiiinnnzzzZ..." RESET << std::endl;
+	std::cout << BWHITE << name << RESET " attacks with their " YELLOW << weapon->getType() << RESET << std::endl;
+}
+
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
 }

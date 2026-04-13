@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include <new>
+# define BWHITE  "\033[1;37m"
+# define RESET "\033[0m"
+# define GRAY  "\e[90m"
 
 class Zombie
 {
@@ -26,11 +29,9 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie();
 		void	announce(void);
+		void	setName(std::string name);
 };
 
 Zombie *zombieHorde(int N, std::string name);
-
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
 
 #endif

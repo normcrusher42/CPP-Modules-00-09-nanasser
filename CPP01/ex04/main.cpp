@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 18:53:18 by nanasser          #+#    #+#             */
-/*   Updated: 2026/04/12 18:53:18 by nanasser         ###   ########.fr       */
+/*   Created: 2026/04/13 21:04:43 by nanasser          #+#    #+#             */
+/*   Updated: 2026/04/13 21:04:43 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
 
 # include <iostream>
 # include <string>
 # include <new>
-# define GRAY  "\e[90m"
-# define RESET "\033[0m"
 
-class Zombie
+int	main(int ac, char **av)
 {
-	private:
-		std::string	name;
-
-	public:
-		// Contstructors
-		Zombie(std::string name);
-		~Zombie();
-		// Member functions
-		void		announce(void);
-};
-
-void	randomChump(std::string name);
-Zombie *newZombie(std::string name);
-
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
-
-#endif
+	if (ac != 4)
+		return (std::cout << "Argument format: ./gnlpp <filename> <find> <replace>" << std::endl, 1);
+}

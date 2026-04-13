@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 18:53:18 by nanasser          #+#    #+#             */
-/*   Updated: 2026/04/12 18:53:18 by nanasser         ###   ########.fr       */
+/*   Created: 2026/04/13 16:14:05 by nanasser          #+#    #+#             */
+/*   Updated: 2026/04/13 16:14:05 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef WEAPON_H
+# define WEAPON_H
 
-# include <iostream>
-# include <string>
-# include <new>
+#include <iostream>
+#include <string>
+#include <new>
+
 # define GRAY  "\e[90m"
 # define RESET "\033[0m"
 
-class Zombie
+class Weapon
 {
 	private:
-		std::string	name;
-
+		std::string type;
 	public:
-		// Contstructors
-		Zombie(std::string name);
-		~Zombie();
+		// Constructors
+		Weapon(std::string type);
+		~Weapon();
 		// Member functions
-		void		announce(void);
+		std::string getType() const;
+		void		setType(std::string type);
 };
-
-void	randomChump(std::string name);
-Zombie *newZombie(std::string name);
-
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
 
 #endif
