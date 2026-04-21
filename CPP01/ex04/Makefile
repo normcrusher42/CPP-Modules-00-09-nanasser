@@ -1,14 +1,12 @@
-SRC = main.cpp \
+SRC = main.cpp
 
-OBJ_PATH = obj/
-
-NAME = gnlpp
+NAME = find_next_line
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
-OBJ = $(SRC:%.cpp=$(OBJ_PATH)%.o)
+OBJ = $(SRC:%.cpp=%.o)
 
 # Color codes ✨
 WHITE = \033[0;37m
@@ -24,13 +22,12 @@ $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(BWHITE)$(NAME)$(WHITE) program is $(BGREEN)ready! $(RESET)✅"
 
-$(OBJ_PATH)%.o : %.cpp
-	@mkdir -p $(OBJ_PATH)
+%.o : %.cpp
 	@echo "$(WHITE)Compiling $(BWHITE)$<$(WHITE) file...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_PATH)
+	@rm -rf main.o
 	@echo "$(BGREEN)cleaned like the blackhole you're getting if you DON'T GET TO COOKING$(WHITE)"
 
 fclean: clean
