@@ -16,9 +16,16 @@
 # include <iostream>
 # include <string>
 # include <new>
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
-# define GRAY  "\e[90m"
+
+# ifndef BWHITE
+#  define BWHITE  "\033[1;37m"
+# endif
+# ifndef RESET
+#  define RESET "\033[0m"
+# endif
+# ifndef GRAY
+#  define GRAY  "\033[90m"
+# endif
 
 class Zombie
 {

@@ -18,10 +18,18 @@
 # include <new>
 # include "Weapon.hpp"
 
-# define GRAY  "\e[90m"
-# define YELLOW  "\033[0;33m"
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
+# ifndef GRAY
+#  define GRAY  "\033[90m"
+# endif
+# ifndef YELLOW
+#  define YELLOW  "\033[0;33m"
+# endif
+# ifndef BWHITE
+#  define BWHITE  "\033[1;37m"
+# endif
+# ifndef RESET
+#  define RESET "\033[0m"
+# endif
 
 class HumanB
 {

@@ -73,6 +73,6 @@ int	main()
 	}
 	std::cout << "thank you for using my service :3" << std::endl;
 	std::cout << "unfortunately, you haven't paid your contact insurance" << std::endl;
-	std::cout << "therefore im deleting yo shit <3" << std::endl;
+	std::cout << "therefore im deleting yo family, friends, and loved ones <3" << std::endl;
 	return (0);
 }

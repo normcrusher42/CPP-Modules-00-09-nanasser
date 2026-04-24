@@ -23,12 +23,12 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@echo "$(WHITE)Compiling $(BWHITE)$(NAME)$(WHITE) program...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(BWHITE)$(NAME)$(WHITE) program is $(BGREEN)ready! $(RESET)✅"
 
 $(OBJ_PATH)%.o : %.cpp
-	@mkdir -p $(@D)
+	@echo "$(WHITE)Compiling $(BWHITE)$<$(WHITE) program...$(RESET)"
+	@mkdir -p $(OBJ_PATH)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

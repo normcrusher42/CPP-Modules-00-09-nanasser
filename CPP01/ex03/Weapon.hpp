@@ -17,8 +17,12 @@
 #include <string>
 #include <new>
 
-# define GRAY  "\e[90m"
-# define RESET "\033[0m"
+# ifndef GRAY
+#  define GRAY  "\033[90m"
+# endif
+# ifndef RESET
+#  define RESET "\033[0m"
+# endif
 
 class Weapon
 {

@@ -16,8 +16,16 @@
 # include <iostream>
 # include <string>
 # include <new>
-# define GRAY  "\e[90m"
-# define RESET "\033[0m"
+
+# ifndef GRAY
+#  define GRAY "\033[90m"
+# endif
+# ifndef BWHITE
+#  define BWHITE  "\033[1;37m"
+# endif
+# ifndef RESET
+#  define RESET "\033[0m"
+# endif
 
 class Zombie
 {
@@ -34,8 +42,5 @@ class Zombie
 
 void	randomChump(std::string name);
 Zombie *newZombie(std::string name);
-
-# define BWHITE  "\033[1;37m"
-# define RESET "\033[0m"
 
 #endif
