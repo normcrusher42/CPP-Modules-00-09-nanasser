@@ -29,6 +29,11 @@ PhoneBook::PhoneBook()
 PhoneBook::~PhoneBook()
 {}
 
+Contact	PhoneBook::getContact(int index) const
+{
+	return (contacts[index]);
+}
+
 // Adds a contact to the phonebook, and increments the number of entries.
 // If the phonebook is full, it replaces the oldest entry with the new contact.
 void PhoneBook::addContact(std::string first_name, std::string last_name, std::string nickname,

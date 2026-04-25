@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
 
 int PhoneBook::getNumEntries()
@@ -20,11 +19,11 @@ int PhoneBook::getNumEntries()
 
 static void print_contact(Contact contact)
 {
-	std::cout << std::endl << "First name: " << contact.getFirstname() << std::endl;
+	std::cout << std::endl << YELLOW "First name: " << contact.getFirstname() << std::endl;
 	std::cout << "Last name: " << contact.getLastName() << std::endl;
 	std::cout << "Nickname: " << contact.getNickname() << std::endl;
 	std::cout << "Phone number: " << contact.getPhonenumber() << std::endl;
-	std::cout << "Darkest secret: " << contact.getDarkestsecret() << std::endl;
+	std::cout << "Darkest secret: " << contact.getDarkestsecret() << RESET << std::endl;
 }
 
 // Truncates the text to fit within 10 characters and prints it in a formatted way.
@@ -46,9 +45,9 @@ static void print_entries(PhoneBook *phoneBook)
 	for (int i = 0; i < phoneBook->getNumEntries(); i++)
 	{
 		std::cout << std::setfill(' ') << std::setw(10) << i + 1 << "|";
-		print_text(phoneBook->contacts[i].getFirstname(), false);
-		print_text(phoneBook->contacts[i].getLastName(), false);
-		print_text(phoneBook->contacts[i].getNickname(), true);
+		print_text(phoneBook->getContact(i).getFirstname(), false);
+		print_text(phoneBook->getContact(i).getLastName(), false);
+		print_text(phoneBook->getContact(i).getNickname(), true);
 	}
 }
 
@@ -64,25 +63,26 @@ static void print_column_titles(void)
 void search_contact(PhoneBook *phoneBook)
 {
 	int i = 0;
+	std::string	input;
 	print_column_titles();
 	print_entries(phoneBook);
 	std::cout << "\nEnter Index >>: ";
-	if (!(std::cin >> i))
+	if (std::getline(std::cin, input) && !input.empty())
 	{
-		std::cout << YELLOW "Invalid Index" RESET << std::endl;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
-	else if (i > 0 && i <= phoneBook->getNumEntries())
-	{
-		print_contact(phoneBook->contacts[i - 1]);
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::stringstream ss(input);
+	    if (ss >> i && i > 0 && i <= phoneBook->getNumEntries())
+	    {
+	        print_contact(phoneBook->getContact(i - 1));
+	        ss.clear();
+	        ss.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	    }
+	    else
+	    {
+	        std::cout << YELLOW "Invalid Index" RESET << std::endl;
+	        ss.clear();
+	        ss.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	    }
 	}
 	else
-	{
-		std::cout << YELLOW "Invalid Index" RESET << std::endl;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
+	    std::cout << YELLOW "Invalid Index" RESET << std::endl;
 }

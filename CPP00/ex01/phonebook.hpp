@@ -18,6 +18,7 @@
 # include <iomanip>
 # include "Contact.hpp"
 # include "macros.hpp"
+# include <sstream>
 
 # define MAX_CONTACTS 8
 
@@ -25,9 +26,8 @@ class PhoneBook
 {
 	private:
 		int	num_of_entries;
-	public:
-		// Contact book
 		Contact contacts[MAX_CONTACTS];
+	public:
 		// Constructors
 		PhoneBook();
 		~PhoneBook();
@@ -35,9 +35,10 @@ class PhoneBook
 		// Member functions
 		void	addContact(std::string first_name, std::string last_name, std::string nickname,
 			std::string phone_number, std::string darkest_secret);
+		Contact	getContact(int index) const;
 		int getNumEntries();
 };
 
-void search_contact(PhoneBook *phoneBook);
+void	search_contact(PhoneBook *phoneBook);
 
 #endif

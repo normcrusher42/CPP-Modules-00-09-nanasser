@@ -14,6 +14,26 @@
 #include "Contact.hpp"
 #include "macros.hpp"
 
+static bool	is_alpha_str(const std::string &str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+        if (!std::isalpha(str[i]) && str[i] != ' ')
+            return (false);
+    }
+	return (true);
+}
+
+static bool	is_numeric_str(const std::string &str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+        if (!std::isdigit(str[i]))
+            return (false);
+    }
+	return (true);
+}
+
 // Gets user input and ensures that it's not empty.
 // It keeps prompting the user until they provide a non-empty input.
 static std::string getUserInput(std::string message)
@@ -23,7 +43,22 @@ static std::string getUserInput(std::string message)
 	while (input.length() == 0)
 	{
 		std::cout << message;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			return "";
+		if (input.find_first_not_of(" \t\n") == std::string::npos)
+			input = "";
+		else if (!message.compare("Enter Phone number: "))
+        {
+            if (!is_numeric_str(input))
+                input = "";
+        }
+        else if (!message.compare("Enter Darkest secret: "))
+            continue ;
+        else  // First name, Last name, Nickname
+        {
+            if (!is_alpha_str(input))
+                input = "";
+        }
 	}
 	return (input);
 }
