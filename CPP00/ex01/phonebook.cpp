@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int find_oldest_entry(Contact contacts[MAX_CONTACTS])
 {

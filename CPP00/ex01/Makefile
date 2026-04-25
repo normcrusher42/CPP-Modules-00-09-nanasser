@@ -5,11 +5,11 @@ Search.cpp
 
 OBJ_PATH = obj/
 
-NAME = EpicPhonebook
+NAME = ExtraEpicPhonebook
 
-CC = c++
+CXX = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
 OBJ = $(SRC:%.cpp=$(OBJ_PATH)%.o)
 
@@ -23,13 +23,13 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(BWHITE)$(NAME)$(WHITE) program is $(BGREEN)ready! $(RESET)✅"
 
 $(OBJ_PATH)%.o : %.cpp
 	@echo "$(WHITE)Compiling $(BWHITE)$<$(WHITE) program...$(RESET)"
 	@mkdir -p $(OBJ_PATH)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ_PATH)

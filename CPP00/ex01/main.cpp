@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 #include "macros.hpp"
 
 static bool	is_alpha_str(const std::string &str)
