@@ -2,9 +2,9 @@ SRC = main.cpp
 
 NAME = HI_BRAIN
 
-CC = c++
+CXX = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
 OBJ = $(SRC:%.cpp=%.o)
 
@@ -19,12 +19,12 @@ all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@echo "$(WHITE)Compiling $(BWHITE)$(NAME)$(WHITE) program...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(BWHITE)$(NAME)$(WHITE) program is $(BGREEN)ready! $(RESET)✅"
 
 %.o : %.cpp
 	@echo "$(WHITE)Compiling $(BWHITE)$<$(WHITE) file...$(RESET)"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf main.o

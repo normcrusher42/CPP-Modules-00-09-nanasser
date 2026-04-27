@@ -33,8 +33,8 @@ class Weapon
 		Weapon(std::string type);
 		~Weapon();
 		// Member functions
-		std::string getType() const;
-		void		setType(std::string type);
+		const std::string	&getType() const;
+		void				setType(std::string type);
 };
 
 #endif

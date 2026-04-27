@@ -15,17 +15,23 @@
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
+	this->weapon = NULL;
 	std::cout << GRAY "Human B \"" << name << "\" was deployed" RESET << std::endl;
 }
 
 HumanB::~HumanB()
 {
-	std::cout << GRAY "Human A \"" << name << "\" has fallen.." RESET << std::endl;
+	std::cout << GRAY "Human B \"" << name << "\" has fallen.." RESET << std::endl;
 }
 
 void	HumanB::attack(void)
 {
-	std::cout << BWHITE << name << RESET " attacks with their " YELLOW << weapon->getType() << RESET << std::endl;
+	if (weapon == NULL)
+	{
+		std::cout << name << " attacks with their bare hands" << std::endl;
+		return ;
+	}
+	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &weapon)

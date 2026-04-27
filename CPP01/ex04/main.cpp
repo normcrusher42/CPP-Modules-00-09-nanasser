@@ -63,6 +63,8 @@ int	main(int ac, char **av)
 	inputFileName = av[1];
 	to_find = av[2];
 	to_replace = av[3];
+	if (to_find.empty() || inputFileName.empty())
+		return (std::cerr << "Error: s1/input file must not be empty" << std::endl, 1);
 	outputFileName += inputFileName + ".replace";
 
 	inputFile.open(inputFileName.c_str(), std::fstream::in);
@@ -82,4 +84,5 @@ int	main(int ac, char **av)
 	find_and_replace(to_find, to_replace, inputFile, outputFile);
 	inputFile.close();
 	outputFile.close();
+	return (0);
 }

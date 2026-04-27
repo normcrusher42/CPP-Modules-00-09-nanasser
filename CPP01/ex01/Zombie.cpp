@@ -20,7 +20,13 @@ Zombie::~Zombie()
 	std::cout << GRAY "Zombie \"" << name << "\" destroyed" RESET << std::endl;
 }
 
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
+	std::cout << GRAY "Zombie \"" << name << "\" created" RESET << std::endl;
+}
+
 void	Zombie::announce(void)
 {
-	std::cout << name << BWHITE ": Moar brainz!" RESET << std::endl;
+	std::cout << name << BWHITE ": BraiiiiiiinnnzzzZ..." RESET << std::endl;
 }
