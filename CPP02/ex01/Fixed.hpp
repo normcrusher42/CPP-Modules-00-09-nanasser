@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 04:34:11 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/13 04:35:11 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/05/13 21:38:14 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 # ifndef GRAY
 #  define GRAY "\033[90m"
@@ -33,13 +34,20 @@ class Fixed
     public:
         // Constructors
 		Fixed(); // Initialize
+		Fixed(const int num);
+		Fixed(const float num);
 		Fixed(const Fixed &copy); // Copy
 		Fixed &operator=(const Fixed &source); // Assignment
 		~Fixed(); // Destroy
+
 		// Member Functions
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+std::ostream	&operator<<(std::ostream &output, const Fixed &fix);
 
 #endif
 

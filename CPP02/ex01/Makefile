@@ -3,7 +3,7 @@ Fixed.cpp
 
 OBJ_PATH = obj/
 
-NAME = Fixed
+NAME = Fixed1
 
 CC = c++
 

@@ -36,6 +36,7 @@ class Fixed
 		Fixed(const Fixed &copy); // Copy
 		Fixed &operator=(const Fixed &source); // Assignment
 		~Fixed(); // Destroy
+
 		// Member Functions
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
