@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 04:34:00 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/14 03:56:19 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/05/25 16:29:04 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,21 @@ bool	Fixed::operator!=(const Fixed &source) const
 	return (this->toFloat() != source.toFloat());
 }
 //-----------Arithmetic Operators-----------//
-float	Fixed::operator+(const Fixed &source) const
+Fixed	Fixed::operator+(const Fixed &source) const
 {
-	return (this->toFloat() + source.toFloat());
+	return (Fixed(this->toFloat() + source.toFloat()));
 }
-float	Fixed::operator-(const Fixed &source) const
+Fixed	Fixed::operator-(const Fixed &source) const
 {
-	return (this->toFloat() - source.toFloat());
+	return (Fixed(this->toFloat() - source.toFloat()));
 }
-float	Fixed::operator*(const Fixed &source) const
+Fixed	Fixed::operator*(const Fixed &source) const
 {
-	return (this->toFloat() * source.toFloat());
+	return (Fixed(this->toFloat() * source.toFloat()));
 }
-float	Fixed::operator/(const Fixed &source) const
+Fixed	Fixed::operator/(const Fixed &source) const
 {
-	return (this->toFloat() / source.toFloat());
+	return (Fixed(this->toFloat() / source.toFloat()));
 }
 //-------Increment/Decrement Operators-------//
 // Pre-increment

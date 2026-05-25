@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 04:34:11 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/14 03:56:05 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/05/25 16:28:44 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ class Fixed
 		bool	operator==(const Fixed &source) const; // Equal to
 		bool	operator!=(const Fixed &source) const; // Not equal to
 		// Arithmetic Operators
-		float	operator+(const Fixed &source) const;
-		float	operator-(const Fixed &source) const;
-		float	operator*(const Fixed &source) const;
-		float	operator/(const Fixed &source) const;
+		Fixed	operator+(const Fixed &source) const;
+		Fixed	operator-(const Fixed &source) const;
+		Fixed	operator*(const Fixed &source) const;
+		Fixed	operator/(const Fixed &source) const;
 		// Increment/decrement Operators
 		Fixed	&operator++();
 		Fixed	&operator--();
