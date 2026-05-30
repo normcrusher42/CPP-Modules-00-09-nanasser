@@ -5,42 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 23:51:08 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/31 00:44:44 by nanasser         ###   ########.fr       */
+/*   Created: 2026/05/31 00:04:27 by nanasser          #+#    #+#             */
+/*   Updated: 2026/05/31 00:46:44 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-	ClapTrap trap("Tank");
-	trap.takeDamage(8);
-	trap.takeDamage(2);
-	trap.takeDamage(5);
-	trap.beRepaired(1);
+	ScavTrap test("tank");
+	test.attack("giant laser");
+	test.takeDamage(50);
+	test.beRepaired(50);
 
 	std::cout << "\n";
-	ClapTrap does(trap);
-	does.attack("laser");
+	ScavTrap hello("jester");
+	hello.beRepaired(10);
+	hello.takeDamage(10);
+	hello.beRepaired(10);
 
 	std::cout << "\n";
-	ClapTrap meow;
-	meow = trap;
-	meow.beRepaired(4);
-
-	std::cout << "\n";
-	ClapTrap boring("Jet");
-	boring.takeDamage(1);
-	boring.beRepaired(4);
-	boring.beRepaired(1);
-
-	std::cout << "\n";
-	boring.attack("");
-
-	std::cout << "\n";
-	for (int i = 0; i < 11; i++)
-		boring.attack("giant laser");
-	boring.beRepaired(1);
-	return (0);
+	hello.guardGate();
+	hello.guardGate();
+	hello.guardGate();
 }

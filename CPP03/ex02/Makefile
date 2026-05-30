@@ -1,9 +1,11 @@
 SRC = main.cpp \
-ClapTrap.cpp
+ClapTrap.cpp \
+ScavTrap.cpp \
+FragTrap.cpp
 
 OBJ_PATH = obj/
 
-NAME = ClapTrap
+NAME = FragTrap
 
 CC = c++
 
