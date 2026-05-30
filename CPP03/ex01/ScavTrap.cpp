@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 00:04:31 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/31 02:06:14 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/05/31 03:48:50 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,24 +79,6 @@ void	ScavTrap::attack(const std::string &target)
 		std::cout << "ScavTrap " << this->name << "'s attack fails. No energy points.\n";
 	else
 		std::cout << "ScavTrap " << this->name << "'s attack fails. Not enough hit points.\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->ep == 0)
-		std::cout << "ScavTrap " << this->name << " cannot be Repaired! No Energy points.\n";
-	else if (this->hp == 0)
-		std::cout << "ScavTrap " << this->name << " cannot be Repaired! Already dead.\n";
-	else if (this->hp == 100)
-		std::cout << "ScavTrap " << this->name << " cannot be Repaired! Already at 100 health points.\n";
-	else if (this->hp + amount > 100)
-		std::cout << "ScavTrap " << this->name << " cannot be Repaired! Amount greator than required.\n";
-	else
-	{
-		this->hp += amount;
-		this->ep--;
-		std::cout << "ScavTrap " << this->name << " repairs by " << amount << " health points. Total points: " << this->hp << std::endl;
-	}
 }
 
 void ScavTrap::guardGate()

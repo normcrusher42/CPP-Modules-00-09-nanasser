@@ -26,7 +26,6 @@ public:
 	~FragTrap();
 
 	void highFivesGuys(void);
-	void beRepaired(unsigned int amount);
 };
 
 #endif

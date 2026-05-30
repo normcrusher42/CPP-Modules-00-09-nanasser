@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 01:25:48 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/31 01:59:49 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/05/31 03:48:52 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,3 @@ void FragTrap::highFivesGuys(void)
 	std::cout << "FragTrap " << this->name <<": mid-war HIGH FIVE GANG :DD\n";
 }
 
-void FragTrap::beRepaired(unsigned int amount)
-{
-	if (this->ep == 0)
-		std::cout << "FragTrap " << this->name << " cannot be Repaired! No Energy points.\n";
-	else if (this->hp == 0)
-		std::cout << "FragTrap " << this->name << " cannot be Repaired! Already dead.\n";
-	else if (this->hp == 100)
-		std::cout << "FragTrap " << this->name << " cannot be Repaired! Already at 100 health points.\n";
-	else if (this->hp + amount > 100)
-		std::cout << "FragTrap " << this->name << " cannot be Repaired! Amount greator than required.\n";
-	else
-	{
-		this->hp += amount;
-		this->ep--;
-		std::cout << "FragTrap " << this->name << " repairs by " << amount << " health points. Total points: " << this->hp << std::endl;
-	}
-}

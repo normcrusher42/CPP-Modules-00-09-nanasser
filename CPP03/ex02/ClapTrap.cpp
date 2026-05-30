@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 01:25:44 by nanasser          #+#    #+#             */
-/*   Updated: 2026/05/31 01:34:08 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/05/31 03:54:44 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,28 +77,28 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		this->hp -= amount;
 	else if (this->hp == 0)
 	{
-		std::cout << "Attack fails as ClapTrap " << this->name << " is already dead.\n";
+		std::cout << "Attack fails as " << this->name << " is already dead.\n";
 		return ;
 	}
 	else
 		this->hp = 0;
-	std::cout << "ClapTrap " << this->name << " is hit!!! Lost " << amount << " hit points. " << this->hp << " HP remains.\n";
+	std::cout << this->name << " is hit!!! Lost " << amount << " hit points. " << this->hp << " HP remains.\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->ep == 0)
-		std::cout << "ClapTrap " << this->name << " cannot be Repaired! No Energy points.\n";
+		std::cout << this->name << " cannot be Repaired! No Energy points.\n";
 	else if (this->hp == 0)
-		std::cout << "ClapTrap " << this->name << " cannot be Repaired! Already dead.\n";
+		std::cout << this->name << " cannot be Repaired! Already dead.\n";
 	else if (this->hp == 10)
-		std::cout << "ClapTrap " << this->name << " cannot be Repaired! Already at 10 health points.\n";
+		std::cout << this->name << " cannot be Repaired! Already at 10 health points.\n";
 	else if (this->hp + amount > 10)
-		std::cout << "ClapTrap " << this->name << " cannot be Repaired! Amount greator than required.\n";
+		std::cout << this->name << " cannot be Repaired! Amount greator than required.\n";
 	else
 	{
 		this->hp += amount;
 		this->ep--;
-		std::cout << "ClapTrap " << this->name << " repairs by " << amount << " health points. Total points: " << this->hp << std::endl;
+		std::cout << this->name << " repairs by " << amount << " health points. Total points: " << this->hp << std::endl;
 	}
 }
