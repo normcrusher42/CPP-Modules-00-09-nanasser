@@ -1,5 +1,6 @@
 SRC = main.cpp \
 Bureaucrat.cpp \
+Form.cpp
 
 OBJ_PATH = obj/
 

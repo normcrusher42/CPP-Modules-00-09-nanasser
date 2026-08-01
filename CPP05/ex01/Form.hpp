@@ -22,6 +22,8 @@
 #  define UNSIGNED false
 # endif
 
+class Bureaucrat;
+
 class Form
 {
 	private:
@@ -39,8 +41,8 @@ class Form
 	// Member Functions
 		const std::string	getName() const;
 		bool				getSignStatus() const;
-		const int			getSignGrade() const;
-		const int			getExecGrade() const;
+		int					getSignGrade() const;
+		int					getExecGrade() const;
 		void				beSigned(const Bureaucrat &bureaucrat);
 	// Custom Exception classes
 		class GradeTooHighException : public std::exception

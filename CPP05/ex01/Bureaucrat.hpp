@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:11:08 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/02 00:28:14 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/02 00:50:40 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # ifndef BRED
 #  define BRED "\033[1;31m"
 # endif
+
+class Form;
 
 class Bureaucrat
 {

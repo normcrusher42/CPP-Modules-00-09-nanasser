@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/02 00:39:50 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/02 01:02:09 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Bureaucrat::Bureaucrat() : _name("Speed"), _grade(67)
 {
-	std::cout << GRAY "Bureaucrat default constructor called" RESET << std::endl;
+	std::cout << GRAY "Bureaucrat default constructor " BWHITE << this->getName() << GRAY " called" RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
-	std::cout << GRAY "Bureaucrat constructor " << name << " with grade " BWHITE << grade << GRAY " called" RESET << std::endl;
+	std::cout << GRAY "Bureaucrat constructor " BWHITE << name << GRAY " with grade " BWHITE << grade << GRAY " called" RESET << std::endl;
 	if (grade > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	else if (grade < 1)
@@ -47,7 +47,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 // Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << GRAY "Bureaucrat destructor called" RESET << std::endl;
+	std::cout << GRAY "Bureaucrat destructor " BWHITE << this->getName() << GRAY " called" RESET << std::endl;
 }
 
 std::string	Bureaucrat::getName() const
@@ -84,7 +84,7 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << BWHITE << this->getName() << BRED "couldn't sign Form " BWHITE << form.getName() << BRED "because:" << e.what() << RESET "\n";
+		std::cerr << BWHITE << this->getName() << BRED " couldn't sign " BWHITE << form.getName() << BRED " because: " << e.what() << RESET "\n";
 	}
 }
 

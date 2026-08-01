@@ -16,9 +16,9 @@
 //		Constructors/Destructor		//
 //									//
 
-Form::Form() : _issigned(UNSIGNED), _signgrade(1), _execgrade(50)
+Form::Form() : _name("Pizza"), _issigned(UNSIGNED), _signgrade(1), _execgrade(50)
 {
-	std::cout << GRAY "Form default constructor called" RESET << std::endl;
+	std::cout << GRAY "Form default constructor " BWHITE << this->getName() << GRAY " called" RESET << std::endl;
 }
 
 Form::Form(const Form &other) : _name(other.getName()), _issigned(other.getSignStatus()), _signgrade(other.getSignGrade()), _execgrade(other.getExecGrade())
@@ -46,7 +46,7 @@ Form &Form::operator=(const Form &other)
 
 Form::~Form()
 {
-	std::cout << GRAY "Form destructor for " BWHITE << this->getName() << GRAY " called" RESET << std::endl;
+	std::cout << GRAY "Form destructor " BWHITE << this->getName() << GRAY " called" RESET << std::endl;
 }
 
 //					//
@@ -63,12 +63,12 @@ bool	Form::getSignStatus() const
 	return (_issigned);
 }
 
-const int	Form::getSignGrade() const
+int	Form::getSignGrade() const
 {
 	return (_signgrade);
 }
 
-const int	Form::getExecGrade() const
+int	Form::getExecGrade() const
 {
 	return (_execgrade);
 }
