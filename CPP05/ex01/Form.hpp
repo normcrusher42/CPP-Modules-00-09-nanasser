@@ -15,20 +15,11 @@
 
 # include "Bureaucrat.hpp"
 
-# ifndef GRAY
-#  define GRAY "\033[90m"
+# ifndef SIGNED
+#  define SIGNED true
 # endif
-# ifndef BWHITE
-#  define BWHITE  "\033[1;37m"
-# endif
-# ifndef RESET
-#  define RESET "\033[0m"
-# endif
-# ifndef RED
-#  define RED "\033[0;31m"
-# endif
-# ifndef BRED
-#  define BRED "\033[1;31m"
+# ifndef UNSIGNED
+#  define UNSIGNED false
 # endif
 
 class Form
@@ -39,6 +30,32 @@ class Form
 		const int			_signgrade;
 		const int			_execgrade;
 	public:
+	// Constructors & Destructor
+		Form();
+		Form(const Form &other);
+		Form(const std::string &name, const int signgrade, const int execgrade);
+		Form &operator=(const Form &other);
+		~Form();
+	// Member Functions
+		const std::string	getName() const;
+		bool				getSignStatus() const;
+		const int			getSignGrade() const;
+		const int			getExecGrade() const;
+		void				beSigned(const Bureaucrat &bureaucrat);
+	// Custom Exception classes
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
+
+std::ostream	&operator<<(std::ostream &output, const Form &rhs);
+
 
 #endif

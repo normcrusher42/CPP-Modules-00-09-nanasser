@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:11:08 by nanasser          #+#    #+#             */
-/*   Updated: 2026/07/17 02:25:25 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/02 00:28:14 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include "Form.hpp"
 
 # ifndef GRAY
 #  define GRAY "\033[90m"
@@ -49,6 +50,7 @@ class Bureaucrat
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
+		void				signForm(Form &form);
 		// Custom Exception classes
 		class GradeTooHighException : public std::exception
 		{
