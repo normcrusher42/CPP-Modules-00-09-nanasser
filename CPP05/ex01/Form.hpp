@@ -39,7 +39,7 @@ class Form
 		Form &operator=(const Form &other);
 		~Form();
 	// Member Functions
-		const std::string	getName() const;
+		std::string			getName() const;
 		bool				getSignStatus() const;
 		int					getSignGrade() const;
 		int					getExecGrade() const;

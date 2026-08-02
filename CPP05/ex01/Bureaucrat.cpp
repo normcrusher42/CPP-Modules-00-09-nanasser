@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/02 01:02:09 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/02 22:06:14 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,13 @@ void	Bureaucrat::signForm(Form &form)
 {
 	try
 	{
+		if (form.getSignStatus())
+		{
+			std::cout << form.getName() << GRAY " is already signed!" RESET << '\n';
+			return ;
+		}
 		form.beSigned(*this);
+		std::cout << BWHITE << form.getName() << GRAY " was successfully signed by " BWHITE << this->getName() << "!" << RESET "\n";
 	}
 	catch (std::exception &e)
 	{

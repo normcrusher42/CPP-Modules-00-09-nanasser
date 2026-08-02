@@ -40,7 +40,7 @@ Form &Form::operator=(const Form &other)
 {
 	std::cout << GRAY "Form assignment operator called" RESET << std::endl;
 	if (this != &other)
-		return (*this);
+		this->_issigned = other._issigned;
 	return (*this);
 }
 
@@ -53,7 +53,7 @@ Form::~Form()
 //		Getters		//
 //					//
 
-const std::string	Form::getName() const
+std::string	Form::getName() const
 {
 	return (_name);
 }
@@ -77,18 +77,9 @@ int	Form::getExecGrade() const
 
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() <= this->getSignGrade())
-	{
-		if (!this->getSignStatus())
-			std::cout << this->getName() << GRAY " is already signed!" RESET << '\n';
-		else
-		{
-			this->_issigned = SIGNED;
-			std::cout << BWHITE << this->getName() << GRAY " was successfully signed by " BWHITE << bureaucrat.getName() << "!" << RESET "\n";
-		}
-	}
-	else
+	if (bureaucrat.getGrade() > this->getSignGrade())
 		throw(Form::GradeTooLowException());
+	this->_issigned = SIGNED;
 }
 
 //		Execption classes		//

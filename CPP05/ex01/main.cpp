@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:48:17 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/02 01:05:04 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/02 22:34:09 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int main()
 {
+	std::cout << BWHITE "   Normal Form (Default values)\n" RESET;
     /* Normal Form (Default values) */
     Form defaultForm;
     std::cout << defaultForm << "\n";
     ///////////////////////
 
+	std::cout << BWHITE "\n Valid Custom Form Creation\n" RESET;
     /* Valid Custom Form Creation */
     try
     {
@@ -32,6 +34,7 @@ int main()
     ///////////////////////
 
     /* Invalid Form Grade Creation (Too High / Too Low) */
+	std::cout << BWHITE "\n Invalid Form Grade Creation (Too High / Too Low) \n" RESET;
     try
     {
         Form impossibleForm("Super Classified", 0, 10);
@@ -41,7 +44,6 @@ int main()
     {
         std::cerr << BRED "Exception Caught: " << RESET << e.what() << std::endl;
     }
-
     try
     {
         Form uselessForm("Trash Permit", 151, 150);
@@ -53,6 +55,7 @@ int main()
     }
     ///////////////////////
 
+	std::cout << BWHITE "\n Successful Signing Test \n" RESET;
     /* Successful Signing Test */
     try
     {
@@ -69,6 +72,7 @@ int main()
     }
     ///////////////////////
 
+	std::cout << BWHITE "\n Failed Signing Test (Grade too low) \n" RESET;
     /* Failed Signing Test (Grade too low) */
     try
     {
@@ -84,10 +88,16 @@ int main()
         std::cerr << BRED "Exception Caught: " << RESET << e.what() << std::endl;
     }
     ///////////////////////
+	try
+	{
+		Bureaucrat burycat("Dante from the hit game Devil May Cry", 1);
+		burycat.signForm(defaultForm); // Form started with 1 by default
+	}
+	catch (std::exception &e)
+	{
+        std::cerr << BRED "Exception Caught: " << RESET << e.what() << std::endl;
+	}
+	std::cout << BWHITE "\n Pizza (which was first constructed normally) should be destroyed now \n" RESET;
 
     return (0);
 }
-
-/* things to research before continuing later:
-why is destructor not called after exception?
-when exception is found, is rest of the try block skipped?*/
