@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:48:17 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/02 22:47:22 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/02 22:47:07 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	std::cout << BWHITE "   Normal Form (Default values)\n" RESET;
 	/* Normal Form (Default values) */
-	Form defaultForm;
+	AForm defaultForm;
 	std::cout << defaultForm << "\n";
 	///////////////////////
 
@@ -24,7 +24,7 @@ int main()
 	/* Valid Custom Form Creation */
 	try
 	{
-		Form taxForm("Tax Form 28B", 50, 25);
+		AForm taxForm("Tax Form 28B", 50, 25);
 		std::cout << taxForm << "\n";
 	}
 	catch (std::exception &e)
@@ -37,7 +37,7 @@ int main()
 	std::cout << BWHITE "\n Invalid Form Grade Creation (Too High / Too Low) \n" RESET;
 	try
 	{
-		Form impossibleForm("Super Classified", 0, 10);
+		AForm impossibleForm("Super Classified", 0, 10);
 		std::cout << impossibleForm << "\n";
 	}
 	catch (std::exception &e)
@@ -46,7 +46,7 @@ int main()
 	}
 	try
 	{
-		Form uselessForm("Trash Permit", 151, 150);
+		AForm uselessForm("Trash Permit", 151, 150);
 		std::cout << uselessForm << "\n";
 	}
 	catch (std::exception &e)
@@ -60,7 +60,7 @@ int main()
 	try
 	{
 		Bureaucrat boss("Gregory", 1);
-		Form permit("Building Permit", 10, 5);
+		AForm permit("Building Permit", 10, 5);
 
 		std::cout << permit << "\n";
 		boss.signForm(permit);
@@ -77,7 +77,7 @@ int main()
 	try
 	{
 		Bureaucrat intern("Steve", 100);
-		Form topSecret("Nuclear Launch Code", 5, 1);
+		AForm topSecret("Nuclear Launch Code", 5, 1);
 
 		std::cout << topSecret << "\n";
 		intern.signForm(topSecret); // signForm internally catches the exception and prints message!
