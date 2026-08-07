@@ -82,6 +82,21 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 	this->_issigned = SIGNED;
 }
 
+void	AForm::executeAction() const
+{
+	std::cout << "AFORM ACTION SHOULD NOT BE EXECUTED" << std::endl;
+}
+
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	if (!this->getSignStatus())
+		throw (AForm::FormNotSignedException());
+	else if (this->getExecGrade() < executor.getGrade())
+		throw (AForm::GradeTooLowException());
+	this->executeAction();
+}
+
+
 //		Execption classes		//
 const char*	AForm::GradeTooHighException::what() const throw()
 {
@@ -91,6 +106,11 @@ const char*	AForm::GradeTooHighException::what() const throw()
 const char*	AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low! Raise your self-esteem! (must be <= 150)");
+}
+
+const char*	AForm::FormNotSignedException::what() const throw()
+{
+	return ("Signature is missing! Time to pay for your car insurance again.. if you have a car.");
 }
 
 //		Overload operator		//

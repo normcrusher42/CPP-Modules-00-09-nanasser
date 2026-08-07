@@ -4,7 +4,7 @@ Form.cpp
 
 OBJ_PATH = obj/
 
-NAME = Forms
+NAME = Form
 
 CC = c++
 

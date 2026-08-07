@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/02 22:44:26 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/08 03:17:30 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void		Bureaucrat::decrementGrade()
 		this->_grade++;
 }
 
+// The main form signing function
 void	Bureaucrat::signForm(AForm &form)
 {
 	try
@@ -91,6 +92,18 @@ void	Bureaucrat::signForm(AForm &form)
 	catch (std::exception &e)
 	{
 		std::cerr << BWHITE << this->getName() << BRED " couldn't sign " BWHITE << form.getName() << BRED " because: " << e.what() << RESET "\n";
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << BRED "Exception Caught: " << RESET << e.what() << std::endl;
 	}
 }
 

@@ -1,6 +1,7 @@
 SRC = main.cpp \
 Bureaucrat.cpp \
-AForm.cpp
+AForm.cpp \
+ShrubberyCreationForm.cpp
 
 OBJ_PATH = obj/
 
