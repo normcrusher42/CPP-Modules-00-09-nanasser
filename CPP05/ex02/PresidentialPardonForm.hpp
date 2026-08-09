@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 01:20:08 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/08 01:20:08 by nanasser         ###   ########.fr       */
+/*   Created: 2026/08/10 01:29:12 by nanasser          #+#    #+#             */
+/*   Updated: 2026/08/10 01:29:12 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "AForm.hpp"
-# include <fstream>
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string	_target;
 	public:
 		// Constructors/Destructor
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &other);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(const std::string &target);
+		PresidentialPardonForm(const PresidentialPardonForm &other);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+		~PresidentialPardonForm();
 		// Member Functions
 		std::string	getTarget() const;
-		void		executeAction() const;
+		void	executeAction() const;
 };
 
-std::ostream	&operator<<(std::ostream &output, const ShrubberyCreationForm &rhs);
+std::ostream	&operator<<(std::ostream &output, const PresidentialPardonForm &rhs);
 
 #endif

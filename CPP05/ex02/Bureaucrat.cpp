@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/08 03:17:30 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/10 01:44:43 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,15 @@ void	Bureaucrat::signForm(AForm &form)
 	{
 		if (form.getSignStatus())
 		{
-			std::cout << form.getName() << GRAY " is already signed!" RESET << '\n';
+			std::cout << BWHITE << form.getName() << GRAY " is already signed!" RESET << std::endl;
 			return ;
 		}
 		form.beSigned(*this);
-		std::cout << BWHITE << form.getName() << GRAY " was successfully signed by " BWHITE << this->getName() << "!" << RESET "\n";
+		std::cout << BWHITE << form.getName() << GRAY " was successfully signed by " BWHITE << this->getName() << "!" << RESET << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << BWHITE << this->getName() << BRED " couldn't sign " BWHITE << form.getName() << BRED " because: " << e.what() << RESET "\n";
+		std::cerr << BWHITE << this->getName() << BRED " couldn't sign " BWHITE << form.getName() << BRED " because: " << e.what() << RESET << std::endl;
 	}
 }
 
@@ -100,6 +100,7 @@ void	Bureaucrat::executeForm(AForm const & form) const
 	try
 	{
 		form.execute(*this);
+		std::cout << BWHITE << this->getName() << RESET " has successfully executed " << BWHITE << form.getName() << "!" << RESET << std::endl;
 	}
 	catch (std::exception &e)
 	{

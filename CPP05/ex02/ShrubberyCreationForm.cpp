@@ -16,12 +16,12 @@
 //		Constructors/Destructor		//
 //									//
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("bebyboi", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Creation", 145, 137), _target("thing")
 {
 	std::cout << GRAY "ShrubberyCreationForm default constructor " BWHITE << this->getName() << GRAY " called" RESET << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("big boi", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Creation", 145, 137), _target(target)
 {
 	std::cout << GRAY "ShrubberyCreationForm constructor " BWHITE << this->getName() << GRAY " with sign and execute grades " BWHITE << this->getSignGrade() << GRAY " and " BWHITE << this->getExecGrade() << GRAY " called" RESET << std::endl;
 }
@@ -51,7 +51,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::executeAction() const
 {
-	std::string		target_name = this->_target + "_Shrubbery";
+	std::string		target_name = this->_target + "_shrubbery";
 	std::ofstream	not_pdf_file(target_name.c_str());
 
 	if (!not_pdf_file.is_open())
@@ -115,8 +115,12 @@ void	ShrubberyCreationForm::executeAction() const
 	not_pdf_file.close();
 }
 
+std::string	ShrubberyCreationForm::getTarget() const
+{
+	return (this->_target);
+}
 
-// std::ostream	&operator<<(std::ostream &output, const ShrubberyCreationForm &rhs)
-// {
-// 	return (output << rhs.getName() << ", Form sign grade "<< rhs.getSignGrade() << ", can execute at " << rhs.getExecGrade() << ".");
-// }
+std::ostream	&operator<<(std::ostream &output, const ShrubberyCreationForm &rhs)
+{
+	return (output << rhs.getName() << ", Form sign grade "<< rhs.getSignGrade() << ", can execute at " << rhs.getExecGrade() << ", targeting " << rhs.getTarget() << ".");
+}

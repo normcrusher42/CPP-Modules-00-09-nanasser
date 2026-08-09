@@ -96,7 +96,6 @@ void	AForm::execute(Bureaucrat const & executor) const
 	this->executeAction();
 }
 
-
 //		Execption classes		//
 const char*	AForm::GradeTooHighException::what() const throw()
 {
