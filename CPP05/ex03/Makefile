@@ -3,11 +3,12 @@ Bureaucrat.cpp \
 AForm.cpp \
 ShrubberyCreationForm.cpp \
 RobotomyRequestForm.cpp \
-PresidentialPardonForm.cpp
+PresidentialPardonForm.cpp \
+Intern.cpp
 
 OBJ_PATH = obj/
 
-NAME = AForms
+NAME = Intern
 
 CC = c++
 
