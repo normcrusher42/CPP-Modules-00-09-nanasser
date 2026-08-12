@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/08/10 01:44:43 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/08/12 23:21:58 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other.getName()), _grade(other.getGrade())
 {
 	std::cout << GRAY "Bureaucrat copy constructor called" RESET << std::endl;
-	return ;
 }
 
 // Assignment operator overload

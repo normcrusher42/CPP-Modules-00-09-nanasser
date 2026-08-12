@@ -24,7 +24,6 @@ Form::Form() : _name("Pizza"), _issigned(UNSIGNED), _signgrade(1), _execgrade(50
 Form::Form(const Form &other) : _name(other.getName()), _issigned(other.getSignStatus()), _signgrade(other.getSignGrade()), _execgrade(other.getExecGrade())
 {
 	std::cout << GRAY "Form copy constructor called" RESET << std::endl;
-	return ;
 }
 
 Form::Form(const std::string &name, const int signgrade, const int execgrade) : _name(name), _issigned(UNSIGNED), _signgrade(signgrade), _execgrade(execgrade)
