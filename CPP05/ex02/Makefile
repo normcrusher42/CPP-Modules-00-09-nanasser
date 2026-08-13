@@ -7,7 +7,7 @@ PresidentialPardonForm.cpp
 
 OBJ_PATH = obj/
 
-NAME = AForms
+NAME = AForm
 
 CC = c++
 
