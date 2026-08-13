@@ -51,12 +51,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::executeAction() const
 {
+	if (this->_target.empty())
+	{
+		std::cerr << RED "File creation failed. Must not be empty." RESET << std::endl;
+		return ;
+	}
 	std::string		target_name = this->_target + "_shrubbery";
 	std::ofstream	not_pdf_file(target_name.c_str());
 
 	if (!not_pdf_file.is_open())
 	{
-		std::cout << RED "File creation failed. Could be a permissions issue." RESET << std::endl;
+		std::cerr << RED "File creation failed. Could be a permissions issue." RESET << std::endl;
 		return ;
 	}
 	else
