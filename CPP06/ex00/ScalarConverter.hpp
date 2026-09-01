@@ -32,6 +32,16 @@
 #  define BRED "\033[1;31m"
 # endif
 
+enum e_type
+{
+	INVALID = 0,
+	CHAR = 1,
+	INT = 2,
+	FLOAT = 3,
+	DOUBLE = 4,
+	LITERAL = 5
+};
+
 class ScalarConverter
 {
 	private:
@@ -44,6 +54,8 @@ class ScalarConverter
 		// Member Function
 		static void	convert(const std::string &literal);
 };
+
+e_type	checkType(const std::string &literal, int &len);
 
 // std::ostream	&operator<<(std::ostream &output, const ScalarConverter &rhs);
 
