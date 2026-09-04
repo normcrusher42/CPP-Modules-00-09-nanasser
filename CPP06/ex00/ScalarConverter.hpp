@@ -16,6 +16,13 @@
 # include <iostream>
 # include <string>
 
+# define INT_MIN std::numeric_limits<int>::min()
+# define INT_MAX std::numeric_limits<int>::max()
+# define FLOAT_MIN -std::numeric_limits<float>::max()
+# define FLOAT_MAX std::numeric_limits<float>::max()
+# define DOUBLE_MIN -std::numeric_limits<double>::max()
+# define DOUBLE_MAX std::numeric_limits<double>::max()
+
 # ifndef GRAY
 #  define GRAY "\033[90m"
 # endif
@@ -56,7 +63,5 @@ class ScalarConverter
 };
 
 e_type	checkType(const std::string &literal, int &len);
-
-// std::ostream	&operator<<(std::ostream &output, const ScalarConverter &rhs);
 
 #endif

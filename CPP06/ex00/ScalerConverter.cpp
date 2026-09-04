@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/09/01 18:34:46 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/09/04 05:32:00 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ static bool	isChar(const std::string &str)
 	return (str.length() == 1 && !isdigit(str[0]));
 }
 
-static bool	isInt(const std::string &str, int len)
+static bool	isInt(const std::string &str, const size_t &len)
 {
-	int	sign = 0;
-	int	i = 0;
+	size_t	i = 0;
 
 	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
-			sign = 1;
-	while (str[i] && (len < 12 || sign && len < 11))
+		i++;
+	if (i == len)
+		return (0);
+	while (str[i] && i < len)
 	{
 		if (!isdigit(str[i++]))
 			return (0);
@@ -65,24 +65,117 @@ static bool	isInt(const std::string &str, int len)
 	return (1);
 }
 
-e_type	checkType(const std::string &literal, int &len)
+static bool	isFloat(const std::string &str, const size_t &len)
+{
+	if (len < 1 || (str[len - 1] != 'f' && str[len - 1] != 'F'))
+		return (0);
+
+	size_t	i = 0;
+	bool	dotfound = false;
+	bool	digitfound = false;
+
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (i == len)
+		return (0);
+	while (str[i] && i < len - 1)
+	{
+		if (str[i] == '.')
+		{
+			if (dotfound)
+				return (0);
+			dotfound = true;
+		}
+		else if (!isdigit(str[i]))
+			return (0);
+		else if (!digitfound)
+			digitfound = true;
+		i++;
+	}
+	return (digitfound);
+}
+
+static bool	isDouble(const std::string &str, const size_t &len)
+{
+	size_t	i = 0;
+	bool	dotfound = false;
+	bool	digitfound = false;
+
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (i == len)
+		return (0);
+	while (str[i] && i < len)
+	{
+		if (str[i] == '.')
+		{
+			if (dotfound)
+				return (0);
+			dotfound = true;
+		}
+		else if (!isdigit(str[i]))
+			return (0);
+		else if (!digitfound)
+			digitfound = true;
+		i++;
+	}
+	return (digitfound);
+}
+
+e_type	checkType(const std::string &literal, const size_t &len)
 {
 	if (isLiteral(literal))
 		return (LITERAL);
-	else if (isChar(literal))
-		return (CHAR);
-	else if (isInt(literal, len))
-		return (INT);
+
+	size_t	dot = literal.find('.');
+	size_t	findf = literal.find('f');
+
+	if (dot == std::string::npos)
+	{
+		
+		if (isChar(literal))
+			return (CHAR);
+		if (isInt(literal, len))
+			return (INT);
+	}
+	if (dot != std::string::npos)
+	{
+		if (findf != std::string::npos)
+		{
+			if (isFloat(literal, len))
+				return (FLOAT);
+		}
+		else if (findf == std::string::npos)
+			if (isDouble(literal, len))
+				return (DOUBLE);
+	}
+	return (INVALID);
 }
 
 void	ScalarConverter::convert(const std::string &literal)
 {
-	int len = static_cast<int>(literal.length());
+	size_t len = literal.length();
 	e_type type = checkType(literal, len);
 	switch (type)
+	{
+		case INVALID:
+			std::cerr << "Invalid input. womp womp" << std::endl;
+			break ;
+		case LITERAL:
+			printLiteral();
+			break ;
+		case CHAR:
+			printChar();
+			break ;
+		case INT:
+			printInt();
+			break ;
+		case FLOAT:
+			printFloat();
+			break ;
+		case DOUBLE:
+			printDouble();
+			break ;
+		break ;
+	}
 }
-
-// std::ostream	&operator<<(std::ostream &output, const ScalarConverter &rhs)
-// {
-// 	return (output << rhs.getName() << ", ScalarConverter grade "<< rhs.getGrade() << ".");
-// }
