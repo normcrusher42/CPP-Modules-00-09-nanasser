@@ -1,9 +1,10 @@
 SRC = main.cpp \
-ScalarConverter.cpp
+ScalarConverter.cpp \
+PrintValues.cpp
 
 OBJ_PATH = obj/
 
-NAME = Bureaucrat
+NAME = ScalarConverter
 
 CC = c++
 

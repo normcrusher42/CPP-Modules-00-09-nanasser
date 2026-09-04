@@ -16,6 +16,12 @@
 # include <iostream>
 # include <string>
 
+// For PrintValues.cpp
+
+# include <cstdlib>
+# include <cctype>
+# include <iomanip>
+# include <limits>
 # define INT_MIN std::numeric_limits<int>::min()
 # define INT_MAX std::numeric_limits<int>::max()
 # define FLOAT_MIN -std::numeric_limits<float>::max()
@@ -62,6 +68,12 @@ class ScalarConverter
 		static void	convert(const std::string &literal);
 };
 
-e_type	checkType(const std::string &literal, int &len);
+e_type	checkType(const std::string &literal, const size_t &len);
+
+void	printLiteral(const std::string &str);
+void	printChar(const std::string &str);
+void	printInt(const std::string &str);
+void	printFloat(const std::string &str);
+void	printDouble(const std::string &str);
 
 #endif

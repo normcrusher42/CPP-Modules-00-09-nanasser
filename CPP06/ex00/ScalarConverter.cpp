@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalerConverter.cpp                                :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 20:10:58 by nanasser          #+#    #+#             */
-/*   Updated: 2026/09/04 05:32:00 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/09/04 21:43:15 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ ScalarConverter::ScalarConverter()
 // Copy constructor
 ScalarConverter::ScalarConverter(const ScalarConverter &other)
 {
+	(void)other;
 	std::cout << GRAY "ScalarConverter copy constructor called" RESET << std::endl;
 }
 
@@ -159,22 +160,22 @@ void	ScalarConverter::convert(const std::string &literal)
 	switch (type)
 	{
 		case INVALID:
-			std::cerr << "Invalid input. womp womp" << std::endl;
+			std::cerr << RED "Invalid input. womp womp" RESET << std::endl;
 			break ;
 		case LITERAL:
-			printLiteral();
+			printLiteral(literal);
 			break ;
 		case CHAR:
-			printChar();
+			printChar(literal);
 			break ;
 		case INT:
-			printInt();
+			printInt(literal);
 			break ;
 		case FLOAT:
-			printFloat();
+			printFloat(literal);
 			break ;
 		case DOUBLE:
-			printDouble();
+			printDouble(literal);
 			break ;
 		break ;
 	}
