@@ -118,7 +118,7 @@ void	printDouble(const std::string &str)
 	else
 		std::cout << "int: " << static_cast<int>(nbr) << '\n';
 	
-	if (nbr < -FLOAT_MAX || nbr > FLOAT_MAX)
+	if (nbr < FLOAT_MIN || nbr > FLOAT_MAX)
 		std::cout << "float: impossible" << '\n';
 	else
 		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(nbr) << "f" << '\n';
