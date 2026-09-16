@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 00:46:08 by nanasser          #+#    #+#             */
-/*   Updated: 2026/09/08 02:00:00 by nanasser         ###   ########.fr       */
+/*   Updated: 2026/09/16 23:15:31 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Serializer
 	private:
 		// Constructors & Destructor (private to avoid instantiating them)
 		Serializer();
-		Serializer(const Serializer&other);
+		Serializer(const Serializer &other);
 		Serializer &operator=(const Serializer &other);
 		~Serializer();
 	public:
