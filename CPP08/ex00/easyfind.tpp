@@ -12,4 +12,13 @@
 
 #pragma once
 
+template <typename T>
+typename T::iterator	easyfind(T &container, int find)
+{
+	typename T::iterator	result;
 
+	result = std::find(container.begin(), container.end(), find);
+	if (result == container.end())
+		throw NotFoundException();
+	return (result);
+}

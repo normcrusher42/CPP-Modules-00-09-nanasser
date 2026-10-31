@@ -2,7 +2,7 @@ SRC = main.cpp \
 
 OBJ_PATH = obj/
 
-NAME = template
+NAME = easyfind
 
 CXX = c++
 
