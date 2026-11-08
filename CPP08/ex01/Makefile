@@ -1,5 +1,5 @@
 SRC = main.cpp \
-span.cpp
+Span.cpp
 
 OBJ_PATH = obj/
 

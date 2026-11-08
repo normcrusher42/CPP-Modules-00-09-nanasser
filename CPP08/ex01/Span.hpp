@@ -13,6 +13,11 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
+# include <algorithm>
+# include <iostream>
+# include <iterator>
+# include <vector>
+
 # ifndef GRAY
 #  define GRAY "\033[90m"
 # endif
@@ -33,20 +38,41 @@ class Span
 {
 	private:
 		unsigned int	N_;
-		std::vect<int>	arr_;
+		std::vector<int>	arr_;
 	public:
 		Span();
+		Span(unsigned int N);
 		Span(const Span &copy);
 		Span	&operator=(const Span &other);
 		~Span();
 
 		// Member functions
 		void	addNumber(int num);
-		int		shortestSpan();
-		int		longestSpan();
+		template <typename InputIterator>
+		void	addRange(InputIterator start, InputIterator end);
+		int		longestSpan() const;
+		int		shortestSpan() const;
 
 		// Useless getter for debugging
-		unsigned int getN();
+		unsigned int	getN() const;
+		class TooManyElementsException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		class InvalidSizeException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
+
+template <typename InputIterator>
+void	Span::addRange(InputIterator start, InputIterator end)
+{
+	if (arr_.size() + static_cast<size_t>(std::distance(start, end)) > N_)
+		throw TooManyElementsException();
+	arr_.insert(arr_.end(), start, end);
+}
 
 #endif
