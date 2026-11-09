@@ -20,7 +20,7 @@ int	main()
 	{
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::exception& e) // Container too small error
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -36,7 +36,7 @@ int	main()
 	{
 		sp.addNumber(12);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception& e) // Cant add more error
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -44,7 +44,7 @@ int	main()
 	Span				bigNums(100000);
 	std::vector<int>	nums;
 	std::srand(time(NULL));
-	for (int i = 0; i < 100000; i++)
+	for (int i = 0; i < 100000; i++) // random nums
 	{
 		int random_int = rand() % 1000000000;
 		nums.push_back(random_int);
@@ -55,7 +55,7 @@ int	main()
 		std::cout << "shortest span: " << bigNums.shortestSpan() << std::endl;
 		std::cout << "longest span: " << bigNums.longestSpan() << std::endl;
 	}
-	catch (std::exception &e)
+	catch (std::exception &e) // should be fine cs its within N size & cant be too small
 	{
 		std::cout << e.what() << std::endl;
 	}
