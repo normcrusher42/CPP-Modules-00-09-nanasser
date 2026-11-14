@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.hpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,6 +17,8 @@
 # include <iostream>
 # include <iterator>
 # include <vector>
+# include <cstdlib>
+# include <ctime>
 
 # ifndef GRAY
 #  define GRAY "\033[90m"
@@ -37,7 +39,7 @@
 class Span
 {
 	private:
-		unsigned int	N_;
+		unsigned int		N_;
 		std::vector<int>	arr_;
 	public:
 		Span();

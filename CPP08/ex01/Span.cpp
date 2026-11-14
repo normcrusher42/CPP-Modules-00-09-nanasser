@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nanasser <nanasser@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,15 +22,14 @@ Span::Span(unsigned int N) : N_(N)
 	std::cout << GRAY "Span with N Constructor called with value " << BWHITE << getN() << RESET << std::endl;
 }
 
-Span::Span(const Span &copy)
+Span::Span(const Span &copy) : N_(copy.N_), arr_(copy.arr_)
 {
-	(*this) = copy;
-	std::cout << GRAY "Span Copy Constructor called with value " << BWHITE << getN() << RESET << std::endl;
+	std::cout << GRAY "Span Copy Constructor called with value " << BWHITE << copy.getN() << RESET << std::endl;
 }
 
 Span	&Span::operator=(const Span &other)
 {
-	std::cout << GRAY "Span = Operator called with value " << BWHITE << getN() << RESET << std::endl;
+	std::cout << GRAY "Span = Operator called with value " << BWHITE << other.getN() << RESET << std::endl;
 	if (this != &other)
 	{
 		N_ = other.N_;
@@ -55,10 +54,13 @@ int	Span::longestSpan() const
 {
 	if (arr_.size() < 2)
 		throw InvalidSizeException();
+
 	std::vector<int> tmp = arr_;
 	std::vector<int>::iterator min = std::min_element(tmp.begin(), tmp.end());
 	std::vector<int>::iterator max = std::max_element(tmp.begin(), tmp.end());
-	return (*max - *min);
+
+	long long span = static_cast<long long>(*max) - *min; // to avoid int overflow
+	return (static_cast<int>(span));
 }
 
 int	Span::shortestSpan() const
@@ -67,13 +69,14 @@ int	Span::shortestSpan() const
 		throw InvalidSizeException();
 	std::vector<int>	sorted = arr_;
 	std::sort(sorted.begin(), sorted.end());
-	int min = sorted[1] - sorted[0];
+	long long min = static_cast<long long>(sorted[1]) - sorted[0]; // to avoid int overflow
 	for (std::vector<int>::size_type i = 1; i < sorted.size() - 1; i++)
 	{
-		if (sorted[i + 1] - sorted[i] < min)
-			min = sorted[i + 1] - sorted[i];
+		long long current = static_cast<long long>(sorted[i + 1]) - sorted[i];
+		if (current < min)
+			min = current;
 	}
-	return (min);
+	return (static_cast<int>(min));
 }
 
 unsigned int	Span::getN() const
