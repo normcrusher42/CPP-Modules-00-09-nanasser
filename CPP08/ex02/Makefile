@@ -1,9 +1,8 @@
-SRC = main.cpp \
-Span.cpp
+SRC = main.cpp
 
 OBJ_PATH = obj/
 
-NAME = Span
+NAME = MutantStack
 
 CXX = c++
 

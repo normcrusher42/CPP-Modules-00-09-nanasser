@@ -17,6 +17,7 @@
 # include <algorithm>
 # include <vector>
 # include <list>
+# include <iostream>
 
 # ifndef GRAY
 #  define GRAY "\033[90m"
@@ -43,6 +44,7 @@ class MutantStack : public std::stack<T>
 		MutantStack &operator=(const MutantStack &other);
 		~MutantStack();
 
+		// Aliases for these container paths so the function names stay nice and clean :)
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
@@ -59,7 +61,7 @@ class MutantStack : public std::stack<T>
 
 		const_reverse_iterator crbegin() const;
 		const_reverse_iterator crend() const;
-}
+};
 
 # include "MutantStack.tpp"
 
