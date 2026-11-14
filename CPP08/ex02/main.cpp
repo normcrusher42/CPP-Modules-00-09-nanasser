@@ -14,6 +14,7 @@
 
 int main()
 {
+	std::cout << "=== 1. STANDARD MUTANTSTACK TEST ===" << std::endl;
 	MutantStack<int> mstack;
 
 	mstack.push(5);
